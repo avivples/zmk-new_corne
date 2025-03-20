@@ -106,11 +106,11 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - REDO
-  - PASTE
-  - COPY
-  - CUT
-  - UNDO
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - Sft+INS
+  - Ctl+INS
+  - Sft+$$mdi:backspace-reverse-outline$$
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - LGUI
