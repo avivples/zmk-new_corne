@@ -56,8 +56,8 @@
         main {
             display-name = "COLEMAK";
             bindings = <
-&td0        &kp Q       &kp W       &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U        &kp Y         &kp SQT     &td0
-&td0        &mt LGUI A  &mt LALT R  &mt RCTRL S  &mt LSHIFT T  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &mt RSHIFT N     &mt LCTRL E  &mt LALT I    &mt RGUI O  &td0
+&none       &kp Q       &kp W       &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U        &kp Y         &kp SQT     &mo 8
+&none       &mt LGUI A  &mt LALT R  &mt RCTRL S  &mt LSHIFT T  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &mt RSHIFT N     &mt LCTRL E  &mt LALT I    &mt RGUI O  &none
 &caps_word  &kp Z       &mt RALT X  &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH    &tog 6
                                     &kp ESC      &lt 2 SPACE   &lt 8 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  &lt 5 DEL
             >;
@@ -68,8 +68,8 @@
         sub {
             display-name = "QWERTY";
             bindings = <
-&td0        &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &td0
-&td0        &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
+&none       &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &none
+&none       &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
 &caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
                                     &kp ESC      &lt 2 SPACE   &lt 8 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  &lt 5 DEL
             >;
@@ -79,10 +79,10 @@
 
         NAV {
             bindings = <
-&trans  &bootloader  &trans    &mkp RCLK  &mkp LCLK  &trans                            &mmv MOVE_UP                     &kp K_REDO  &kp K_PASTE    &kp K_COPY  &kp K_CUT  &kp K_UNDO    &trans
-&trans  &kp LGUI     &kp LALT  &kp LCTRL  &kp LSHFT  &trans            &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &kp LEFT    &kp DOWN       &kp UP      &kp RIGHT  &kp CAPSLOCK  &trans
-&trans  &trans       &kp RALT  &trans     &trans     &trans  &trans                    &mmv MOVE_DOWN                   &kp HOME    &kp PG_DN      &kp PG_UP   &kp END    &kp INS       &trans
-                               &trans     &trans     &trans                                                             &kp ENTER   &kp BACKSPACE  &kp DEL
+&none  &bootloader  &none     &mkp RCLK  &mkp LCLK  &none                           &mmv MOVE_UP                     &kp K_REDO  &kp K_PASTE    &kp K_COPY  &kp K_CUT  &kp K_UNDO    &none
+&none  &kp LGUI     &kp LALT  &kp LCTRL  &kp LSHFT  &none           &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &kp LEFT    &kp DOWN       &kp UP      &kp RIGHT  &kp CAPSLOCK  &none
+&none  &none        &kp RALT  &none      &none      &none  &none                    &mmv MOVE_DOWN                   &kp HOME    &kp PG_DN      &kp PG_UP   &kp END    &kp INS       &none
+                              &none      &none      &none                                                            &kp ENTER   &kp BACKSPACE  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
@@ -91,10 +91,10 @@
 
         NUMBER {
             bindings = <
-&trans  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT                     &trans          &trans  &trans     &trans     &trans    &trans    &trans
-&trans  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL            &trans  &trans  &trans  &trans  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &trans            &trans          &trans  &trans     &trans     &kp RALT  &trans    &trans
-                           &kp DOT  &kp N0  &kp MINUS                                    &trans  &trans     &trans
+&none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT                   &none         &none  &none      &none      &none     &none     &none
+&none  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &none           &none         &none  &none      &none      &kp RALT  &none     &none
+                          &kp DOT  &kp N0  &kp MINUS                                &none  &none      &none
             >;
 
             label = "NUMBER";
@@ -103,10 +103,10 @@
 
         SYMBOL {
             bindings = <
-&trans  &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE                    &trans          &trans  &trans     &trans     &trans    &trans    &trans
-&trans  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                   &trans  &trans  &trans  &trans  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &trans            &trans          &trans  &trans     &trans     &kp RALT  &trans    &trans
-                                         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                     &trans  &trans     &trans
+&none  &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE                  &none         &none  &none      &none      &none     &none     &none
+&none  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                  &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &none           &none         &none  &none      &none      &kp RALT  &none     &none
+                                        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                 &none  &none      &none
             >;
 
             label = "SYMBOL";
@@ -115,10 +115,10 @@
 
         FN {
             bindings = <
-&trans  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                        &trans          &trans  &trans     &trans     &trans    &trans    &trans
-&trans  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK            &trans  &trans  &trans  &trans  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &trans
-&trans  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &trans            &trans          &trans  &trans     &trans     &kp RALT  &trans    &trans
-                         &kp K_APPLICATION  &kp SPACE  &kp TAB                                           &trans  &trans     &trans
+&none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                      &none         &none  &none      &none      &none     &none     &none
+&none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &none           &none         &none  &none      &none      &kp RALT  &none     &none
+                        &kp K_APPLICATION  &kp SPACE  &kp TAB                                       &none  &none      &none
             >;
 
             label = "FN";
@@ -126,10 +126,10 @@
 
         GAMING {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T                          &trans          &kp Y    &kp U    &kp I      &kp O    &kp P     &trans
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G                  &trans  &trans  &trans  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &trans
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &trans            &trans          &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &trans
-                         &kp LALT  &kp SPACE  &lt 7 ENTER                                    &kp ESC  &kp DEL  &kp GRAVE
+&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T                        &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G                 &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &none
+                         &kp LALT  &kp SPACE  &lt 7 ENTER                                &kp ESC  &kp DEL  &kp GRAVE
             >;
 
             label = "GAMING";
@@ -137,10 +137,10 @@
 
         GAME_NUM {
             bindings = <
-&kp TAB    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                       &trans          &kp Y    &kp U    &kp I      &kp O    &kp P     &trans
-&kp LSHFT  &kp A   &kp S   &kp D     &kp F      &kp G                &trans  &trans  &trans  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &trans
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B      &trans            &trans          &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &trans
-                           &kp LALT  &kp SPACE  &kp ENTER                                    &kp ESC  &kp DEL  &kp GRAVE
+&kp TAB    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                     &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+&kp LSHFT  &kp A   &kp S   &kp D     &kp F      &kp G               &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B      &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &none
+                           &kp LALT  &kp SPACE  &kp ENTER                                &kp ESC  &kp DEL  &kp GRAVE
             >;
 
             label = "GAME_NUM";
@@ -149,10 +149,10 @@
         MISC {
             display-name = "MISC";
             bindings = <
-&trans  &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &none         &none                                          &mmv MOVE_UP                     &none            &none            &none            &none            &none     &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                         &trans        &trans        &trans                                                                          &kp INS          &kp DEL          &trans
+&none  &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &none         &none                                          &mmv MOVE_UP                     &none            &none            &none            &none            &none     &kp BSPC
+&none  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&none  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &none         &none         &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+                                        &none         &none         &none                                                                           &kp INS          &kp DEL          &none
             >;
 
             sensor-bindings = <&rgb_encoder>;
