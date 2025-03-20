@@ -58,7 +58,7 @@
             bindings = <
 &td0        &kp Q       &kp W       &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U        &kp Y         &kp SQT     &td0
 &td0        &mt LGUI A  &mt LALT R  &mt RCTRL S  &mt LSHIFT T  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &mt RSHIFT N     &mt LCTRL E  &mt LALT I    &mt RGUI O  &td0
-&caps_word  &kp Z       &mt RALT X  &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH    &tog 0
+&caps_word  &kp Z       &mt RALT X  &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH    &tog 6
                                     &kp ESC      &lt 2 SPACE   &lt 8 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  &lt 5 DEL
             >;
 
@@ -144,8 +144,8 @@
             label = "GAME_NUM";
         };
 
-        MISC {
-            display-name = "MISC";
+        MISC1 {
+            display-name = "MISC1";
             bindings = <
 &trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                         &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
 &trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
@@ -157,8 +157,8 @@
             label = "MISC";
         };
 
-        raise_layer {
-            display-name = "SYMBOL";
+        MISC2 {
+            display-name = "MISC2";
             bindings = <
 &trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
 &trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4             &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
