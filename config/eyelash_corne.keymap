@@ -79,10 +79,10 @@
 
         NAV {
             bindings = <
-&none  &bootloader  &none     &mkp RCLK  &mkp LCLK  &none                           &mmv MOVE_UP                     &none      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
-&none  &kp LGUI     &kp LALT  &kp LCTRL  &kp LSHFT  &none           &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &kp LEFT   &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
-&none  &none        &kp RALT  &none      &none      &none  &none                    &mmv MOVE_DOWN                   &kp HOME   &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
-                              &none      &none      &none                                                            &kp ENTER  &kp BACKSPACE  &kp DEL
+&none  &bootloader  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none                           &mmv MOVE_UP                     &none      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
+&none  &kp LGUI     &kp LALT   &kp LCTRL  &kp LSHFT  &none           &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &kp LEFT   &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
+&none  &none        &kp RALT   &none      &none      &none  &none                    &mmv MOVE_DOWN                   &kp HOME   &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
+                               &none      &none      &none                                                            &kp ENTER  &kp BACKSPACE  &kp DEL
             >;
 
             sensor-bindings = <&scroll_encoder>;
