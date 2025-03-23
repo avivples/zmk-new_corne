@@ -21,9 +21,6 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
-    - name: zmk-helpers
-      remote: urob
-      revision: main
     - name: zmk-adaptive-key
       remote: urob
       revision: main
