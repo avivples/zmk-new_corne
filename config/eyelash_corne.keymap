@@ -10,6 +10,11 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/unicode-chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
+#include "zmk-helpers/key-labels/eyelash42.h"
+
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
