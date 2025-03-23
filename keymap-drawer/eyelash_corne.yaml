@@ -15,23 +15,23 @@ layers:
   - {t: '''', s: '"'}
   - MISC
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: A, h: LGUI}
-  - {t: R, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: S, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
+  - '&hml LGUI A'
+  - '&hml LALT R'
+  - '&hml RCTRL S'
+  - '&hml LSHIFT T'
   - G
   - $$mdi:arrow-left-bold$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:arrow-right-bold$$
   - M
-  - {t: N, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: E, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: I, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: O, h: RGUI}
+  - '&hmr RSHIFT N'
+  - '&hmr LCTRL E'
+  - '&hmr LALT I'
+  - '&hmr RGUI O'
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:alpha-w-box$$
   - Z
-  - {t: X, h: '$$mdi:apple-keyboard-option$$'}
+  - X
   - C
   - D
   - V
@@ -40,7 +40,7 @@ layers:
   - K
   - H
   - {t: ',', s: <}
-  - {t: ., h: '$$mdi:apple-keyboard-option$$', s: '>'}
+  - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: GAMING, h: toggle}
   - $$mdi:keyboard-esc$$
