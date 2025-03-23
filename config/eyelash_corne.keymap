@@ -84,8 +84,120 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
   ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
-// #include "combos.dtsi" // Must be sourced after HRM-combo hack.
-// #include "leader.dtsi"
+#include "combos.dtsi" // Must be sourced after HRM-combo hack.
+#include "leader.dtsi"
+
+/* Nav cluster */
+
+// Trigger tap-action on all interrupts.
+#define MT_CORE                                                                \
+  flavor = "tap-preferred";                                                    \
+  tapping-term-ms = <220>;                                                     \
+  quick-tap-ms = <220>;                                                        \
+  hold-trigger-key-positions = <0>;
+
+&mt { MT_CORE };
+
+ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
+ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
+
+#define NAV_LEFT  &mt_home 0   LEFT  // Tap: left  | Long-tap: start of line.
+#define NAV_RIGHT &mt_end 0    RIGHT // Tap: right | Long-tap: end   of line.
+#define NAV_UP    &mt LC(HOME) UP    // Tap: up    | Long-tap: start of doc.
+#define NAV_DOWN  &mt LC(END)  DOWN  // Tap: down  | Long-tap: end   of doc.
+#define NAV_BSPC  &mt LC(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
+#define NAV_DEL   &mt LC(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
+
+// Mask CTRL on left/right hold to avoid accidental jumps to start/end of doc.
+#define MASK_MODS(NAME, MODS, BINDING)                                         \
+  ZMK_MOD_MORPH(NAME, bindings = <BINDING>, <BINDING>; mods = <MODS>;)
+
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+/* Magic-shift & auto-layers */
+
+// Tap: repeat after alpha, else sticky-shift |
+// Shift + tap/ double-tap: caps-word | Hold: shift.
+#define MAGIC_SHIFT &magic_shift LSHFT 0
+ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
+             flavor = "balanced"; tapping-term-ms = <200>;
+             quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_repeat>, <&caps_word>;
+              mods = <(MOD_LSFT)>;)
+ZMK_ADAPTIVE_KEY(
+    shift_repeat, bindings = <&sk LSHFT>;
+    repeat {
+      trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
+      bindings = <&key_repeat>;
+      max-prior-idle-ms = <1200>;
+      strict-modifiers;
+    };)
+&caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
+  /delete-property/ ignore-modifiers;
+};
+
+// Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
+              tapping-term-ms = <200>;)
+
+/* Custom behaviors */
+
+// Alt+Tab swapper, requires tri-state module.
+ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    ignored-key-positions = <LT2 RT2 RM1 RM2 RM3>;)
+
+// Define mod-morph with a *single* mod trigger for less repetition.
+#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
+ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
+      bindings = <BINDING1>, <BINDING2>;)
+
+// Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
+SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
+
+// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
+SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+
+// Tap: qmark | Shift + tap: excl.
+SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
+
+// Tap: left/right parenthesis | Shft + tap: less-than/greater-than.
+SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
+SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
+
+// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced";
+   tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
+ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
+tap-ms = <5>;)
+
+// Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
+ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
+    mods = <(MOD_LSFT|MOD_RSFT)>; keep-mods = <MOD_RSFT>;)
+
+// Tap: copy | double-tap: cut.
+ZMK_TAP_DANCE(copy_cut, bindings = <&kp LC(INS)>, <&kp LC(X)>;
+    tapping-term-ms = <200>;)
+
+// Sticky shift + leader.
+ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
+
+// Misc aliases. [TODO: clean up]
+#define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
+#define DSK_PREV  &hmr LCTRL LG(LC(LEFT)) // Previous desktop.
+#define DSK_NEXT  &hmr LALT LG(LC(RIGHT)) // Next     desktop.
+#define PIN_WIN   &kp LG(LC(LS(Q)))       // Pin window across desktops.
+#define PIN_APP   &kp LG(LC(LS(A)))       // Pin application across desktops.
+#define DSK_MGR   &kp LA(GRAVE)           // Desktop manager.
+#define VOL_DOWN  &hmr RSHFT C_VOL_DN
+
+// Keymap
 
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
@@ -122,10 +234,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         CLMK {
             display-name = "CLMK";
             bindings = <
-&tog 1      &kp Q       &kp W       &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U        &kp Y         &kp SQT     &mo 8
-&none       &hml LGUI A  &hml LALT R  &hml RCTRL S  &hml LSHIFT T  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N     &hmr LCTRL E  &hmr LALT I    &hmr RGUI O  &none
-&caps_word  &kp Z       &kp X  &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &kp DOT  &kp FSLH    &tog 6
-                                    &kp ESC      &lt 2 SPACE   &lt 8 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  &lt 5 DEL
+&tog 1     &kp Q        &kp W        &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U          &kp Y         &kp SQT     &mo 8
+&kp ESC      &hml LGUI A  &hml LALT R  &hml RCTRL S &hml LSHIFT T &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N    &hmr LCTRL E   &hmr LALT I   &hmr RGUI O &kp DEL
+&caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &qexcl      &tog 6
+                                      MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -134,10 +246,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         QWERTY {
             display-name = "QWERTY";
             bindings = <
-&none       &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &none
-&none       &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
+&tog 0       &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
+&kp ESC     &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
 &caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
-                                    &kp ESC      &lt 2 SPACE   &lt 8 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  &lt 5 DEL
+                                    MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -145,10 +257,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
         NAV {
             bindings = <
-&none  &bootloader  &mkp MCLK  &mkp RCLK  &mkp LCLK  &none                           &mmv MOVE_UP                     &none      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
-&none  &kp LGUI     &kp LALT   &kp LCTRL  &kp LSHFT  &none           &mmv MOVE_LEFT  &mkp MCLK       &mmv MOVE_RIGHT  &kp LEFT   &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
-&none  &none        &kp RALT   &none      &none      &none  &none                    &mmv MOVE_DOWN                   &kp HOME   &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
-                               &none      &none      &none                                                            &kp ENTER  &kp BACKSPACE  &kp DEL
+&none     &bootloader  &mkp MCLK     &mkp RCLK      &mkp LCLK        &none                           &mmv MOVE_UP                     &kp C_AC_SAVE      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
+&swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     &kp LEFT           &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
+&none     &none        &kp LS(DEL)   &kp LS(INS)    &kp LC(INS)      &none  &none                    &mmv MOVE_DOWN                   &kp HOME           &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
+                                     &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &none
             >;
 
             sensor-bindings = <&scroll_encoder>;
