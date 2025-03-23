@@ -6,7 +6,6 @@
                 compatible = "zmk,behavior-leader-key"; \
                 #binding-cells = <0>; \
                 ignore-keys = <LSHFT RSHFT>; \
-                zmk,priority = <170>; \
                 leader_sequence_ ## name { \
                     bindings = <leader_bindings>; \
                     sequence = <leader_sequence>; \
