@@ -1,4 +1,7 @@
 manifest:
+  defaults:
+    remote: urob
+    revision: v0.2 # Pin everything to v0.2
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -36,5 +39,11 @@ manifest:
     - name: nice-view-gem #new entry
       remote: m165437 #new entry
       revision: main #new entry
+
+    # Temporarily overload Zephyr until
+    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
+    - name: zephyr
+      revision: v3.5.0+zmk-fixes
+      clone-depth: 1
   self:
     path: config
