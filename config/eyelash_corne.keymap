@@ -371,7 +371,7 @@ ZMK_LAYER(Number,
     &none  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
     &none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &none           &none         &none  &none      &none      &kp RALT  &none     &none
                               &kp DOT  &kp N0  &kp MINUS                                &none  &none      &none,
-    &inc_dec_kp LC(Y) LC(Z)>
+    &inc_dec_kp LC(Y) LC(Z)
 )
 
 ZMK_LAYER(Symbol,
@@ -379,7 +379,7 @@ ZMK_LAYER(Symbol,
     &none  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                  &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
     &none  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &none           &none         &none  &none      &none      &kp RALT  &none     &none
                                         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                 &none  &none      &none,
-    &inc_dec_kp LG(Y) LG(Z)>
+    &inc_dec_kp LG(Y) LG(Z)
 )
 
 ZMK_LAYER(Fn,
@@ -387,7 +387,7 @@ ZMK_LAYER(Fn,
     &none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
     &none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         &none  &none      &none      &kp RALT  &none     &none
                             &kp K_APPLICATION  &kp SPACE  &kp TAB                                            &none  &none      &none,
-    &inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>
+    &inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN
 )
 
 ZMK_LAYER(Gaming,
