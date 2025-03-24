@@ -200,11 +200,6 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
 // Keymap
 
-#ifndef ZMK_BASE_LAYER
-  #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
-      ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
-#endif
-
 / {
     behaviors {
         td0: td0 {
@@ -229,114 +224,190 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
         tap-ms = <100>;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
+//     keymap {
+//         compatible = "zmk,keymap";
 
-        CLMK {
-            display-name = "CLMK";
-            bindings = <
-&tog 1      &kp Q        &kp W        &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U          &kp Y         &kp SQT     &mo 8
-&kp ESC     &hml LGUI A  &hml LALT R  &hml RCTRL S &hml LSHIFT T &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N    &hmr LCTRL E   &hmr LALT I   &hmr RGUI O &kp DEL
-&caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &qexcl      &tog 6
-                                      MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
-            >;
+//         CLMK {
+//             display-name = "CLMK";
+//             bindings = <
+// &tog 1      &kp Q        &kp W        &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U          &kp Y         &kp SQT     &mo 8
+// &kp ESC     &hml LGUI A  &hml LALT R  &hml RCTRL S &hml LSHIFT T &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N    &hmr LCTRL E   &hmr LALT I   &hmr RGUI O &kp DEL
+// &caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &qexcl      &tog 6
+//                                       MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
+//             >;
 
-            sensor-bindings = <&scroll_encoder>;
-        };
+//             sensor-bindings = <&scroll_encoder>;
+//         };
 
-        QWERTY {
-            display-name = "QWERTY";
-            bindings = <
-&tog 0      &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
-&kp ESC     &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
-&caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
-                                    MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
-            >;
+//         QWERTY {
+//             display-name = "QWERTY";
+//             bindings = <
+// &tog 0      &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
+// &kp ESC     &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
+// &caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
+//                                     MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT
+//             >;
 
-            sensor-bindings = <&scroll_encoder>;
-        };
+//             sensor-bindings = <&scroll_encoder>;
+//         };
 
-        NAV {
-            bindings = <
-&none     &bootloader  &mkp MCLK     &mkp RCLK      &mkp LCLK        &none                           &mmv MOVE_UP                     &kp C_AC_SAVE      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
-&swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     &kp LEFT           &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
-&none     &none        &kp LS(DEL)   &kp LS(INS)    &kp LC(INS)      &none  &none                    &mmv MOVE_DOWN                   &kp HOME           &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
-                                     &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &none
-            >;
+//         NAV {
+//             bindings = <
+// &none     &bootloader  &mkp MCLK     &mkp RCLK      &mkp LCLK        &none                           &mmv MOVE_UP                     &kp C_AC_SAVE      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
+// &swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     &kp LEFT           &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
+// &none     &none        &kp LS(DEL)   &kp LS(INS)    &kp LC(INS)      &none  &none                    &mmv MOVE_DOWN                   &kp HOME           &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
+//                                      &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &none
+//             >;
 
-            sensor-bindings = <&scroll_encoder>;
-            label = "NAV";
-        };
+//             sensor-bindings = <&scroll_encoder>;
+//             label = "NAV";
+//         };
 
-        NUMBER {
-            bindings = <
-&none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT                   &none         &none  &none      &none      &none     &none     &none
-&none  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-&none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &none           &none         &none  &none      &none      &kp RALT  &none     &none
-                          &kp DOT  &kp N0  &kp MINUS                                &none  &none      &none
-            >;
+//         NUMBER {
+//             bindings = <
+// &none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT                   &none         &none  &none      &none      &none     &none     &none
+// &none  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+// &none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &none           &none         &none  &none      &none      &kp RALT  &none     &none
+//                           &kp DOT  &kp N0  &kp MINUS                                &none  &none      &none
+//             >;
 
-            label = "NUMBER";
-            sensor-bindings = <&inc_dec_kp LC(Y) LC(Z)>;
-        };
+//             label = "NUMBER";
+//             sensor-bindings = <&inc_dec_kp LC(Y) LC(Z)>;
+//         };
 
-        SYMBOL {
-            bindings = <
-&none  &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE                  &none         &none  &none      &none      &none     &none     &none
-&none  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                  &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-&none  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &none           &none         &none  &none      &none      &kp RALT  &none     &none
-                                        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                 &none  &none      &none
-            >;
+//         SYMBOL {
+//             bindings = <
+// &none  &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE                  &none         &none  &none      &none      &none     &none     &none
+// &none  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                  &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+// &none  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &none           &none         &none  &none      &none      &kp RALT  &none     &none
+//                                         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                 &none  &none      &none
+//             >;
 
-            label = "SYMBOL";
-            sensor-bindings = <&inc_dec_kp LG(Y) LG(Z)>;
-        };
+//             label = "SYMBOL";
+//             sensor-bindings = <&inc_dec_kp LG(Y) LG(Z)>;
+//         };
 
-        FN {
-            bindings = <
-&none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                           &none         &none  &none      &none      &none     &none     &none
-&none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-&none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         &none  &none      &none      &kp RALT  &none     &none
-                        &kp K_APPLICATION  &kp SPACE  &kp TAB                                            &none  &none      &none
-            >;
+//         FN {
+//             bindings = <
+// &none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                           &none         &none  &none      &none      &none     &none     &none
+// &none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+// &none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         &none  &none      &none      &kp RALT  &none     &none
+//                         &kp K_APPLICATION  &kp SPACE  &kp TAB                                            &none  &none      &none
+//             >;
 
-            label = "FN";
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
-        };
+//             label = "FN";
+//             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+//         };
 
-        GAMING {
-            bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T                        &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G                 &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &tog 6
-                         &kp LALT  &kp SPACE  &lt 7 ENTER                                &kp ESC  &kp DEL  &kp GRAVE
-            >;
+//         GAMING {
+//             bindings = <
+// &kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T                        &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+// &kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G                 &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+// &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &tog 6
+//                          &kp LALT  &kp SPACE  &lt 7 ENTER                                &kp ESC  &kp DEL  &kp GRAVE
+//             >;
 
-            label = "GAMING";
-        };
+//             label = "GAMING";
+//         };
 
-        GAME_NUM {
-            bindings = <
-&kp TAB    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                     &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
-&kp LSHFT  &kp A   &kp S   &kp D     &kp F      &kp G               &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B      &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &none
-                           &kp LALT  &kp SPACE  &kp ENTER                                &kp ESC  &kp DEL  &kp GRAVE
-            >;
+//         GAME_NUM {
+//             bindings = <
+// &kp TAB    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                     &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+// &kp LSHFT  &kp A   &kp S   &kp D     &kp F      &kp G               &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+// &kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B      &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &none
+//                            &kp LALT  &kp SPACE  &kp ENTER                                &kp ESC  &kp DEL  &kp GRAVE
+//             >;
 
-            label = "GAME_NUM";
-        };
+//             label = "GAME_NUM";
+//         };
 
-        MISC {
-            display-name = "MISC";
-            bindings = <
-&none  &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &none         &none                                               &mmv MOVE_UP                     &none            &none            &none            &none            &none     &kp BSPC
-&none  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                        &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&none  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &none         &none         &rgb_ug RGB_EFF  &rgb_ug RGB_TOG                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                        &none         &none         &none                                                                                &kp INS          &kp DEL          &none
-            >;
+//         MISC {
+//             display-name = "MISC";
+//             bindings = <
+// &none  &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &none         &none                                               &mmv MOVE_UP                     &none            &none            &none            &none            &none     &kp BSPC
+// &none  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                        &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+// &none  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &none         &none         &rgb_ug RGB_EFF  &rgb_ug RGB_TOG                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+//                                         &none         &none         &none                                                                                &kp INS          &kp DEL          &none
+//             >;
 
-            sensor-bindings = <&rgb_encoder>;
-            label = "MISC";
-        };
-    };
+//             sensor-bindings = <&rgb_encoder>;
+//             label = "MISC";
+//         };
+    // };
 };
+
+
+// #ifndef ZMK_BASE_LAYER
+//   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
+//       ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
+// #endif
+
+ZMK_LAYER(Clmk,
+    &tog 1      &kp Q        &kp W        &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U          &kp Y         &kp SQT     &mo 8
+    &kp ESC     &hml LGUI A  &hml LALT R  &hml RCTRL S &hml LSHIFT T &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N    &hmr LCTRL E   &hmr LALT I   &hmr RGUI O &kp DEL
+    &caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &qexcl      &tog 6
+                                          MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT,
+    &scroll_encoder
+)
+
+ZMK_LAYER(Qwerty,
+    &tog 0      &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
+    &kp ESC     &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
+    &caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
+                                        MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT,
+    &scroll_encoder
+)
+
+ZMK_LAYER(Nav,
+    &none     &bootloader  &mkp MCLK     &mkp RCLK      &mkp LCLK        &none                           &mmv MOVE_UP                     &kp C_AC_SAVE      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
+    &swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     &kp LEFT           &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
+    &none     &none        &kp LS(DEL)   &kp LS(INS)    &kp LC(INS)      &none  &none                    &mmv MOVE_DOWN                   &kp HOME           &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
+                                         &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &none,
+    &scroll_encoder
+)
+
+ZMK_LAYER(Number,
+    &none  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT                   &none         &none  &none      &none      &none     &none     &none
+    &none  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL           &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+    &none  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH   &none           &none         &none  &none      &none      &kp RALT  &none     &none
+                              &kp DOT  &kp N0  &kp MINUS                                &none  &none      &none,
+    &inc_dec_kp LC(Y) LC(Z)>
+)
+
+ZMK_LAYER(Symbol,
+    &none  &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE                  &none         &none  &none      &none      &none     &none     &none
+    &none  &kp COLON       &kp DOLLAR       &kp PERCENT           &kp CARET              &kp PLUS                  &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+    &none  &kp TILDE       &kp EXCLAMATION  &kp AT                &kp HASH               &kp PIPE         &none           &none         &none  &none      &none      &kp RALT  &none     &none
+                                        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE                                 &none  &none      &none,
+    &inc_dec_kp LG(Y) LG(Z)>
+)
+
+ZMK_LAYER(Fn,
+    &none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                           &none         &none  &none      &none      &none     &none     &none
+    &none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+    &none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         &none  &none      &none      &kp RALT  &none     &none
+                            &kp K_APPLICATION  &kp SPACE  &kp TAB                                            &none  &none      &none,
+    &inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>
+)
+
+ZMK_LAYER(Gaming,
+    &kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T                        &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+    &kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G                 &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &tog 6
+                            &kp LALT  &kp SPACE  &lt 7 ENTER                                &kp ESC  &kp DEL  &kp GRAVE
+)
+
+ZMK_LAYER(Game_num,
+    &kp TAB    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                     &none         &kp Y    &kp U    &kp I      &kp O    &kp P     &none
+    &kp LSHFT  &kp A   &kp S   &kp D     &kp F      &kp G               &none  &none  &none  &kp H    &kp J    &kp K      &kp L    &kp SEMI  &none
+    &kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B      &none           &none         &kp N    &kp M    &kp COMMA  &kp DOT  &kp FSLH  &none
+                            &kp LALT  &kp SPACE  &kp ENTER                                &kp ESC  &kp DEL  &kp GRAVE
+)
+
+ZMK_LAYER(Misc,
+    &none  &bt BT_CLR       &out OUT_USB    &out OUT_BLE  &none         &none                                               &mmv MOVE_UP                     &none            &none            &none            &none            &none     &kp BSPC
+    &none  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                        &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+    &none  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &none         &none         &rgb_ug RGB_EFF  &rgb_ug RGB_TOG                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
+                                            &none         &none         &none                                                                                &kp INS          &kp DEL          &none,
+    &rgb_encoder
+)
