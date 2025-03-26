@@ -347,24 +347,24 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 ZMK_LAYER(Clmk,
     &tog 1      &kp Q        &kp W        &kp F        &kp P         &kp B                             &kp UP                &kp J        &kp L            &kp U          &kp Y         &kp SQT     &mo 8
     &kp ESC     &hml LGUI A  &hml LALT R  &hml RCTRL S &hml LSHIFT T &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp M        &hmr RSHIFT N    &hmr LCTRL E   &hmr LALT I   &hmr RGUI O &kp DEL
-    &caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &qexcl      &tog 6
-                                          MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT,
+    &caps_word  &kp Z        &kp X        &kp C        &kp D         &kp V      &kp SPACE              &kp DOWN              &kp K        &kp H            &comma_morph   &dot_morph    &kp FSLH    &tog 6
+                                          MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  SMART_NUM,
     &scroll_encoder
 )
 
 ZMK_LAYER(Qwerty,
-    &tog 0      &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
+    &tog 1      &kp Q       &kp W       &kp E        &kp P         &kp T                             &kp UP                &kp Y        &kp U            &kp I        &kp O         &kp P               &lt 5 DEL
     &kp ESC     &mt LGUI A  &mt LALT S  &mt RCTRL D  &mt LSHIFT F  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &mt RSHIFT J     &mt LCTRL K  &mt LALT L    &mt RGUI SEMICOLON  &kp SINGLE_QUOTE
     &caps_word  &kp Z       &mt RALT X  &kp C        &kp V         &kp B      &kp SPACE              &kp DOWN              &kp K        &kp H            &kp COMMA    &mt RALT DOT  &kp FSLH            &tog 6
-                                        MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  MAGIC_SHIFT,
+                                        MAGIC_SHIFT  &lt_spc 2 0   &lt 5 TAB                                               &lt 4 ENTER  &lt 3 BACKSPACE  SMART_NUM,
     &scroll_encoder
 )
 
 ZMK_LAYER(Nav,
     &none     &bootloader  &mkp MCLK     &mkp RCLK      &mkp LCLK        &none                           &mmv MOVE_UP                     &kp C_AC_SAVE      &kp LS(INS)    &kp LC(INS)  &kp LS(DEL)  &bootloader   &none
-    &swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     &kp LEFT           &kp DOWN       &kp UP       &kp RIGHT    &kp CAPSLOCK  &none
+    &swapper  &sk LGUI     &sk LALT      &sk LCTRL      &sk LSHFT        &none           &mmv MOVE_LEFT  &mkp MCLK    &mmv MOVE_RIGHT     NAV_LEFT           NAV_DOWN       NAV_UP       NAV_RIGHT    &kp CAPSLOCK  &none
     &none     &none        &kp LS(DEL)   &kp LS(INS)    &kp LC(INS)      &none  &none                    &mmv MOVE_DOWN                   &kp HOME           &kp PG_DN      &kp PG_UP    &kp END      &kp INS       &none
-                                         &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &none,
+                                         &none      &none      &none                                                                      &kp C_AC_FIND  CANCEL  &swapper,
     &scroll_encoder
 )
 
@@ -385,10 +385,10 @@ ZMK_LAYER(Symbol,
 )
 
 ZMK_LAYER(Fn,
-    &none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                           &none         &none  &none      &none      &none     &none     &none
-    &none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
-    &none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         &none  &none      &none      &kp RALT  &none     &none
-                            &kp K_APPLICATION  &kp SPACE  &kp TAB                                            &none  &none      &none,
+    &none  &kp F12  &kp F7  &kp F8             &kp F9     &kp SYSREQ                           &none         &none     &none         &none      &none     &none     &none
+    &none  &kp F11  &kp F4  &kp F5             &kp F6     &kp SCROLLLOCK                &none  &none  &none  &none     &kp LSHFT     &kp LCTRL  &kp LALT  &kp LGUI  &none
+    &none  &kp F10  &kp F1  &kp F2             &kp F3     &kp C_PAUSE     &kp C_MUTE           &none         DSK_PREV  DSK_NEXT      &none      &kp RALT  &none     &none
+                            &kp K_APPLICATION  &kp SPACE  &kp TAB                                            NAV_DEL   NAV_BSPC      &none,
     &inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN
 )
 
