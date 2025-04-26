@@ -53,7 +53,7 @@ layers:
     - Q
     - W
     - E
-    - P
+    - R
     - T
     - ↑
     - Y
@@ -85,8 +85,8 @@ layers:
     - B
     - Spc
     - ↓
-    - K
-    - H
+    - N
+    - M
     - ','
     - {t: ., h: Alt}
     - /

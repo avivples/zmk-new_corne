@@ -86,7 +86,8 @@ draw:
     set -euo pipefail
     keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/eyelash_corne.keymap" --virtual-layers Combos >"{{ draw }}/eyelash_corne.yaml"
     yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/eyelash_corne.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/eyelash_corne.yaml" --dts-layout "/mnt/c/Users/avivp/Documents/zmk-new_corne/boards/arm/eyelash_corne/eyelash_corne.dtsi" >"{{ draw }}/eyelash_corne.svg"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/eyelash_corne.yaml" --dts-layout "/mnt/c/Users/avivp/Documents/zmk-new_corne/eyelash_corne/boards/arm/eyelash_corne/eyelash_corne.dtsi" > "{{ draw }}/eyelash_corne.svg"
+    inkscape --export-type png --export-filename "{{ draw }}/eyelash_corne.png" --export-dpi 300 --export-background=white "{{ draw }}/eyelash_corne.svg"
 
 # initialize west
 init:
