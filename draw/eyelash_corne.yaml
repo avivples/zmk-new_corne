@@ -1,0 +1,553 @@
+layers:
+  Clmk:
+    - {t: Qwerty, h: toggle}
+    - Q
+    - W
+    - F
+    - P
+    - B
+    - ↑
+    - J
+    - L
+    - U
+    - Y
+    - ''''
+    - Misc
+    - Esc
+    - {t: A, h: Gui}
+    - {t: R, h: Alt}
+    - {t: S, h: Ctrl}
+    - {t: T, h: LSHIFT}
+    - G
+    - ←
+    - ENTER
+    - →
+    - M
+    - {t: N, h: RSHIFT}
+    - {t: E, h: Ctrl}
+    - {t: I, h: Alt}
+    - {t: O, h: Gui}
+    - Del
+    - Caps Word
+    - Z
+    - X
+    - C
+    - D
+    - V
+    - Spc
+    - ↓
+    - K
+    - H
+    - {t: ',', s: ;}
+    - {t: ., s: ':'}
+    - /
+    - {t: Gaming, h: toggle}
+    - {t: Magic, h: Shift}
+    - {t: Spc, h: Nav, s: Sentence}
+    - {t: Tab, h: Fn}
+    - {t: ENTER, h: Symbol}
+    - {t: BACKSPACE, h: Number}
+    - {t: Numword, h: Number, s: Sticky Num}
+  Qwerty:
+    - {t: Qwerty, h: toggle}
+    - Q
+    - W
+    - E
+    - P
+    - T
+    - ↑
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - {t: Del, h: Fn}
+    - Esc
+    - {t: A, h: Gui}
+    - {t: S, h: Alt}
+    - {t: D, h: Ctrl}
+    - {t: F, h: LSHIFT}
+    - G
+    - ←
+    - ENTER
+    - →
+    - H
+    - {t: J, h: RSHIFT}
+    - {t: K, h: Ctrl}
+    - {t: L, h: Alt}
+    - {t: ;, h: Gui}
+    - ''''
+    - Caps Word
+    - Z
+    - {t: X, h: Alt}
+    - C
+    - V
+    - B
+    - Spc
+    - ↓
+    - K
+    - H
+    - ','
+    - {t: ., h: Alt}
+    - /
+    - {t: Gaming, h: toggle}
+    - {t: Magic, h: Shift}
+    - {t: Spc, h: Nav, s: Sentence}
+    - {t: Tab, h: Fn}
+    - {t: ENTER, h: Symbol}
+    - {t: BACKSPACE, h: Number}
+    - {t: Numword, h: Number, s: Sticky Num}
+  Nav:
+    - ''
+    - Boot
+    - Middle Click
+    - Right Click
+    - Left Click
+    - ''
+    - Mouse ↑
+    - AC SAVE
+    - Paste
+    - Copy
+    - Sft+Del
+    - Boot
+    - ''
+    - Next Win
+    - {t: Gui, h: sticky}
+    - {t: Alt, h: sticky}
+    - {t: Ctrl, h: sticky}
+    - {t: Shift, h: sticky}
+    - ''
+    - Mouse ←
+    - Middle Click
+    - Mouse →
+    - {t: ←, h: Home}
+    - {t: ↓, h: Ctl+End}
+    - {t: ↑, h: Ctl+Home}
+    - {t: →, h: End}
+    - CAPSLOCK
+    - ''
+    - ''
+    - ''
+    - Sft+Del
+    - Paste
+    - Copy
+    - ''
+    - ''
+    - Mouse ↓
+    - Home
+    - PgDn
+    - PgUp
+    - End
+    - Ins
+    - ''
+    - ''
+    - {type: held}
+    - ''
+    - AC FIND
+    - CANCEL
+    - Next Win
+  Number:
+    - ''
+    - {t: '[', right: '{'}
+    - '7'
+    - '8'
+    - '9'
+    - {t: ']', right: '}'}
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ;
+    - '4'
+    - '5'
+    - '6'
+    - '='
+    - ''
+    - ''
+    - ''
+    - ''
+    - Shift
+    - Ctrl
+    - Alt
+    - Gui
+    - ''
+    - ''
+    - '`'
+    - '1'
+    - '2'
+    - '3'
+    - \
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - Alt
+    - ''
+    - ''
+    - .
+    - '0'
+    - '-'
+    - ''
+    - {type: held}
+    - ''
+  Symbol:
+    - ''
+    - '{'
+    - '&'
+    - '*'
+    - (
+    - '}'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ':'
+    - $
+    - '%'
+    - ^
+    - +
+    - ''
+    - ''
+    - ''
+    - ''
+    - Shift
+    - Ctrl
+    - Alt
+    - Gui
+    - ''
+    - ''
+    - '~'
+    - '!'
+    - '@'
+    - '#'
+    - '|'
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - Alt
+    - ''
+    - ''
+    - (
+    - )
+    - _
+    - {type: held}
+    - ''
+    - ''
+  Fn:
+    - ''
+    - F12
+    - F7
+    - F8
+    - F9
+    - SYSREQ
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - F11
+    - F4
+    - F5
+    - F6
+    - SCROLLLOCK
+    - ''
+    - ''
+    - ''
+    - ''
+    - Shift
+    - Ctrl
+    - Alt
+    - Gui
+    - ''
+    - ''
+    - F10
+    - F1
+    - F2
+    - F3
+    - PAUSE
+    - $$mdi:volume-off$$
+    - ''
+    - {t: Prev Desk, h: Ctrl}
+    - {t: Next Desk, h: Alt}
+    - ''
+    - Alt
+    - ''
+    - ''
+    - APPLICATION
+    - Spc
+    - {t: Tab, type: held}
+    - {t: Del, h: Ctl+Del}
+    - {t: Bspc, h: Ctl+Bspc}
+    - ''
+  Gaming:
+    - Tab
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - ''
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - ''
+    - Shift
+    - A
+    - S
+    - D
+    - F
+    - G
+    - ''
+    - ''
+    - ''
+    - H
+    - J
+    - K
+    - L
+    - ;
+    - ''
+    - Ctrl
+    - Z
+    - X
+    - C
+    - V
+    - B
+    - ''
+    - ''
+    - N
+    - M
+    - ','
+    - .
+    - /
+    - {t: Gaming, h: toggle}
+    - Alt
+    - Spc
+    - {t: ENTER, h: Game_num}
+    - Esc
+    - Del
+    - '`'
+  Game_num:
+    - Tab
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - ''
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - ''
+    - Shift
+    - A
+    - S
+    - D
+    - F
+    - G
+    - ''
+    - ''
+    - ''
+    - H
+    - J
+    - K
+    - L
+    - ;
+    - ''
+    - Ctrl
+    - Z
+    - X
+    - C
+    - V
+    - B
+    - ''
+    - ''
+    - N
+    - M
+    - ','
+    - .
+    - /
+    - ''
+    - Alt
+    - Spc
+    - {t: ENTER, type: held}
+    - Esc
+    - Del
+    - '`'
+  Misc:
+    - ''
+    - BT CLR
+    - OUT USB
+    - OUT BLE
+    - ''
+    - ''
+    - Mouse ↑
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - {t: Bspc, type: held}
+    - ''
+    - BT CLR ALL
+    - BT 1
+    - BT 2
+    - BT 3
+    - BT 4
+    - Mouse ←
+    - Left Click
+    - Mouse →
+    - ←
+    - ↓
+    - ↑
+    - →
+    - Home
+    - PgUp
+    - ''
+    - RGB OFF
+    - RGB ON
+    - ''
+    - ''
+    - RGB EFF
+    - RGB TOG
+    - Mouse ↓
+    - RGB EFR
+    - RGB SPI
+    - RGB BRI
+    - RGB BRD
+    - End
+    - PgDn
+    - ''
+    - ''
+    - ''
+    - Ins
+    - Del
+    - ''
+  Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '']
+combos:
+  - p: [2, 3]
+    k: Esc
+    l: [Combos]
+  - p: [15, 16]
+    k: Tab
+    l: [Combos]
+  - p: [16, 17]
+    k: Leader
+    l: [Combos]
+  - p: [15, 16, 17]
+    k: Shift+Leader
+    l: [Combos]
+    a: top
+    o: 1.35
+  - p: [30, 32]
+    k: Cut
+    l: [Combos]
+    a: bottom
+    o: 0.15
+  - p: [30, 31]
+    k: Copy
+    l: [Combos]
+  - p: [31, 32]
+    k: Paste
+    l: [Combos]
+  - p: [8, 9]
+    k: Bspc
+    l: [Combos]
+  - p: [9, 10]
+    k: Del
+    l: [Combos]
+  - p: [23, 24]
+    k: {t: (, right: <}
+    l: [Combos]
+  - p: [24, 25]
+    k: {t: ), right: '>'}
+    l: [Combos]
+  - p: [23, 24]
+    k: <
+    l: [Combos]
+    hidden: true
+  - p: [24, 25]
+    k: '>'
+    l: [Combos]
+    hidden: true
+  - p: [37, 38]
+    k: {t: '[', right: '{'}
+    l: [Combos]
+  - p: [38, 39]
+    k: {t: ']', right: '}'}
+    l: [Combos]
+  - p: [37, 38]
+    k: '{'
+    l: [Combos]
+    hidden: true
+  - p: [38, 39]
+    k: '}'
+    l: [Combos]
+    hidden: true
+  - p: [2, 15]
+    k: '@'
+    l: [Combos]
+  - p: [3, 16]
+    k: '#'
+    l: [Combos]
+  - p: [4, 17]
+    k: $
+    l: [Combos]
+  - p: [5, 18]
+    k: '%'
+    l: [Combos]
+  - p: [15, 30]
+    k: '`'
+    l: [Combos]
+  - p: [16, 31]
+    k: \
+    l: [Combos]
+  - p: [17, 32]
+    k: '='
+    l: [Combos]
+  - p: [18, 33]
+    k: '~'
+    l: [Combos]
+  - p: [7, 22]
+    k: ^
+    l: [Combos]
+  - p: [8, 23]
+    k: +
+    l: [Combos]
+  - p: [9, 24]
+    k: '*'
+    l: [Combos]
+  - p: [10, 25]
+    k: '&'
+    l: [Combos]
+  - p: [22, 36]
+    k: _
+    l: [Combos]
+  - p: [23, 37]
+    k: '-'
+    l: [Combos]
+  - p: [24, 38]
+    k: /
+    l: [Combos]
+  - p: [25, 39]
+    k: '|'
+    l: [Combos]
